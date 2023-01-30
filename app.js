@@ -6,8 +6,8 @@ const MAPI_KEY = process.env.API_KEY
 const MLIST_ID = process.env.LIST_ID
 const MAPI_SERVER = process.env.API_SERVER
 
+const port = process.env.PORT || 3000;
 const app = express();
-const port = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -63,4 +63,5 @@ app.post("/failure", (req, res) => {
     res.redirect("/");
 });
 
-app.listen(process.env.PORT || port, () => console.log(`Listening on port ${port}.`));
+app.listen(port);
+console.log(`Listening on port ${port}.`);
